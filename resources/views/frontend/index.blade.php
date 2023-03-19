@@ -132,24 +132,21 @@
         <div class="row">
             <div class="col-md-4 col-sm-4 ">
                 <!-- right content wrapper -->
-                <div class="input-group search-area">
+                {{-- <div class="input-group search-area">
                     <!-- search area -->
                     <input type="text" class="form-control" placeholder="Search articles here ..." name="q">
                     <div class="input-group-btn">
                         <button class="btn btn-search" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                     </div>
-                </div>
+                </div> --}}
                 <!-- /.search area -->
                 <h3 class="category-headding ">CATEGORIES</h3>
                 <div class="headding-border bg-color-2"></div>
                 <div class="cats-widget">
                     <ul>
-                        <li class=""><a href="#" title="Title goes here.">Fashion</a> <span>12</span></li>
-                        <li class=""><a href="#" title="Title goes here.">Beauty</a> <span>9</span></li>
-                        <li class=""><a href="#">Travel</a> <span>32</span></li>
-                        <li class=""><a href="#" title="Title goes here.">Lifestyle</a> <span>50</span></li>
-                        <li class=""><a href="#">Video</a> <span>22</span></li>
-                        <li class=""><a href="#">Inspiration</a> <span>39</span></li>
+                        @foreach ($categories as $category)
+                        <li class=""><a href="#">{{$category->category_name}}</a> <span>{{App\Models\Article::where('category_id', $category->id)->count()}}</span></li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="banner-add">
@@ -162,7 +159,7 @@
             <div class="col-md-8 col-sm-8 left-padding">
                 <!-- left content inner -->
                 <section class="recent_news_inner">
-                    <h3 class="category-headding ">International</h3>
+                    <h3 class="category-headding">RECENT NEWS</h3>
                     <div class="headding-border"></div>
                     <div class="row">
                         <div id="content-slide" class="owl-carousel">
@@ -179,7 +176,7 @@
                                     </div>
                                     <div class="post-info meta-info-rn">
                                         <div class="slide">
-                                            <a target="_blank" href="#" class="post-badge btn_six">I</a>
+                                            {{-- <a target="_blank" href="#" class="post-badge btn_six">I</a> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -209,7 +206,7 @@
                                 </div>
                                 <div class="post-info meta-info-rn">
                                     <div class="slide">
-                                        <a target="_blank" href="#" class="post-badge btn_six">I</a>
+                                        {{-- <a target="_blank" href="#" class="post-badge btn_six">I</a> --}}
                                     </div>
                                 </div>
                             </div>
@@ -1033,446 +1030,5 @@
             </div>
         </div>
     </section>
-    <!-- article section Area
-        ============================================ -->
-    {{-- <div class="lat_arti_cont_wrap">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8">
-                    <!-- article -->
-                    <div class="add_logo">
-                        <a href="#"><img src="{{asset('frontend_asset/images/top-bannner2.jpg')}}" class="img-responsive" alt=""></a>
-                    </div>
-                    <section class="articale-inner">
-                        <h3 class="category-headding ">ARTICLE</h3>
-                        <div class="headding-border"></div>
-                        <div class="row">
-                            <div id="content-slide-5" class="owl-carousel">
-                                <!-- item-1 -->
-                                <div class="item">
-                                    <div class="row rn_block">
-                                        <div class="col-xs-6 col-md-4 col-sm-4 padd">
-                                            <div class="post-wrapper wow fadeIn" data-wow-duration="1s">
-                                                <!-- image -->
-                                                <div class="post-thumb">
-                                                    <a href="#">
-                                                        <img class="img-responsive" src="{{asset('frontend_asset/images/articale.jpg')}}" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="post-info meta-info-rn">
-                                                    <div class="slide">
-                                                        <a target="_blank" href="#" class="post-badge btn_five">B</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="post-title-author-details">
-                                                <h4><a href="#">World Econmy Changing and Affecting in 3rd ...</a></h4>
-                                                <div class="post-editor-date">
-                                                    <div class="post-date">
-                                                        <i class="pe-7s-clock"></i> Oct 6, 2016
-                                                    </div>
-                                                    <div class="post-author-comment"><i class="pe-7s-comment"></i> 13 </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-6 col-md-4 col-sm-4 padd">
-                                            <div class="post-wrapper wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
-                                                <!-- image -->
-                                                <div class="post-thumb">
-                                                    <a href="#">
-                                                        <img class="img-responsive" src="{{asset('frontend_asset/images/articale02.jpg')}}" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="post-info meta-info-rn">
-                                                    <div class="slide">
-                                                        <a target="_blank" href="#" class="post-badge btn_three">S</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="post-title-author-details">
-                                                <h4><a href="#">World Econmy Changing and Affecting in 3rd ...</a></h4>
-                                                <div class="post-editor-date">
-                                                    <div class="post-date">
-                                                        <i class="pe-7s-clock"></i> Oct 6, 2016
-                                                    </div>
-                                                    <div class="post-author-comment"><i class="pe-7s-comment"></i> 13 </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-6 col-md-4 col-sm-4 padd">
-                                            <div class="post-wrapper wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
-                                                <!-- image -->
-                                                <div class="post-thumb">
-                                                    <a href="#">
-                                                        <img class="img-responsive" src="{{asset('frontend_asset/images/articale03.jpg')}}" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="post-info meta-info-rn">
-                                                    <div class="slide">
-                                                        <a target="_blank" href="#" class="post-badge btn_one">F</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="post-title-author-details">
-                                                <h4><a href="#">World Econmy Changing and Affecting in 3rd ...</a></h4>
-                                                <div class="post-editor-date">
-                                                    <div class="post-date">
-                                                        <i class="pe-7s-clock"></i> Oct 6, 2016
-                                                    </div>
-                                                    <div class="post-author-comment"><i class="pe-7s-comment"></i> 13 </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-6 col-md-4 col-sm-4 padd">
-                                            <div class="post-wrapper wow fadeIn" data-wow-duration="1s" data-wow-delay="0.4s">
-                                                <!-- image -->
-                                                <div class="post-thumb">
-                                                    <a href="#">
-                                                        <img class="img-responsive" src="{{asset('frontend_asset/images/articale04.jpg')}}" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="post-info meta-info-rn">
-                                                    <div class="slide">
-                                                        <a target="_blank" href="#" class="post-badge btn_eight">H</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="post-title-author-details">
-                                                <h4><a href="#">World Econmy Changing and Affecting in 3rd ...</a></h4>
-                                                <div class="post-editor-date">
-                                                    <div class="post-date">
-                                                        <i class="pe-7s-clock"></i> Oct 6, 2016
-                                                    </div>
-                                                    <div class="post-author-comment"><i class="pe-7s-comment"></i> 13 </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-6 col-md-4 col-sm-4 padd">
-                                            <div class="post-wrapper wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
-                                                <!-- image -->
-                                                <div class="post-thumb">
-                                                    <a href="#">
-                                                        <img class="img-responsive" src="{{asset('frontend_asset/images/articale05.jpg')}}" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="post-info meta-info-rn">
-                                                    <div class="slide">
-                                                        <a target="_blank" href="#" class="post-badge btn_four">L</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="post-title-author-details">
-                                                <h4><a href="#">World Econmy Changing and Affecting in 3rd ...</a></h4>
-                                                <div class="post-editor-date">
-                                                    <div class="post-date">
-                                                        <i class="pe-7s-clock"></i> Oct 6, 2016
-                                                    </div>
-                                                    <div class="post-author-comment"><i class="pe-7s-comment"></i> 13 </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-6 col-md-4 col-sm-4 padd">
-                                            <div class="post-wrapper wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
-                                                <!-- image -->
-                                                <div class="post-thumb">
-                                                    <a href="#">
-                                                        <img class="img-responsive" src="{{asset('frontend_asset/images/articale06.jpg')}}" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="post-info meta-info-rn">
-                                                    <div class="slide">
-                                                        <a target="_blank" href="#" class="post-badge btn_two">T</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="post-title-author-details">
-                                                <h4><a href="#">World Econmy Changing and Affecting in 3rd ...</a></h4>
-                                                <div class="post-editor-date">
-                                                    <div class="post-date">
-                                                        <i class="pe-7s-clock"></i> Oct 6, 2016
-                                                    </div>
-                                                    <div class="post-author-comment"><i class="pe-7s-comment"></i> 13 </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- item-2 -->
-                                <div class="item">
-                                    <div class="row rn_block">
-                                        <div class="col-xs-6 col-md-4 col-sm-4 padd">
-                                            <div class="post-wrapper wow fadeIn" data-wow-duration="1s">
-                                                <!-- image -->
-                                                <div class="post-thumb">
-                                                    <a href="#">
-                                                        <img class="img-responsive" src="{{asset('frontend_asset/images/articale.jpg')}}" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="post-info meta-info-rn">
-                                                    <div class="slide">
-                                                        <a target="_blank" href="#" class="post-badge btn_five">B</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="post-title-author-details">
-                                                <h4><a href="#">World Econmy Changing and Affecting in 3rd ...</a></h4>
-                                                <div class="post-editor-date">
-                                                    <div class="post-date">
-                                                        <i class="pe-7s-clock"></i> Oct 6, 2016
-                                                    </div>
-                                                    <div class="post-author-comment"><i class="pe-7s-comment"></i> 13 </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-6 col-md-4 col-sm-4 padd">
-                                            <div class="post-wrapper wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
-                                                <!-- image -->
-                                                <div class="post-thumb">
-                                                    <a href="#">
-                                                        <img class="img-responsive" src="{{asset('frontend_asset/images/articale02.jpg')}}" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="post-info meta-info-rn">
-                                                    <div class="slide">
-                                                        <a target="_blank" href="#" class="post-badge btn_three">S</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="post-title-author-details">
-                                                <h4><a href="#">World Econmy Changing and Affecting in 3rd ...</a></h4>
-                                                <div class="post-editor-date">
-                                                    <div class="post-date">
-                                                        <i class="pe-7s-clock"></i> Oct 6, 2016
-                                                    </div>
-                                                    <div class="post-author-comment"><i class="pe-7s-comment"></i> 13 </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-6 col-md-4 col-sm-4 padd">
-                                            <div class="post-wrapper wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
-                                                <!-- image -->
-                                                <div class="post-thumb">
-                                                    <a href="#">
-                                                        <img class="img-responsive" src="{{asset('frontend_asset/images/articale03.jpg')}}" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="post-info meta-info-rn">
-                                                    <div class="slide">
-                                                        <a target="_blank" href="#" class="post-badge btn_one">F</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="post-title-author-details">
-                                                <h4><a href="#">World Econmy Changing and Affecting in 3rd ...</a></h4>
-                                                <div class="post-editor-date">
-                                                    <div class="post-date">
-                                                        <i class="pe-7s-clock"></i> Oct 6, 2016
-                                                    </div>
-                                                    <div class="post-author-comment"><i class="pe-7s-comment"></i> 13 </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-6 col-md-4 col-sm-4 padd">
-                                            <div class="post-wrapper wow fadeIn" data-wow-duration="1s" data-wow-delay="0.4s">
-                                                <!-- image -->
-                                                <div class="post-thumb">
-                                                    <a href="#">
-                                                        <img class="img-responsive" src="{{asset('frontend_asset/images/articale04.jpg')}}" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="post-info meta-info-rn">
-                                                    <div class="slide">
-                                                        <a target="_blank" href="#" class="post-badge btn_eight">H</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="post-title-author-details">
-                                                <h4><a href="#">World Econmy Changing and Affecting in 3rd ...</a></h4>
-                                                <div class="post-editor-date">
-                                                    <div class="post-date">
-                                                        <i class="pe-7s-clock"></i> Oct 6, 2016
-                                                    </div>
-                                                    <div class="post-author-comment"><i class="pe-7s-comment"></i> 13 </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-6 col-md-4 col-sm-4 padd">
-                                            <div class="post-wrapper wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
-                                                <!-- image -->
-                                                <div class="post-thumb">
-                                                    <a href="#">
-                                                        <img class="img-responsive" src="{{asset('frontend_asset/images/articale05.jpg')}}" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="post-info meta-info-rn">
-                                                    <div class="slide">
-                                                        <a target="_blank" href="#" class="post-badge btn_four">L</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="post-title-author-details">
-                                                <h4><a href="#">World Econmy Changing and Affecting in 3rd ...</a></h4>
-                                                <div class="post-editor-date">
-                                                    <div class="post-date">
-                                                        <i class="pe-7s-clock"></i> Oct 6, 2016
-                                                    </div>
-                                                    <div class="post-author-comment"><i class="pe-7s-comment"></i> 13 </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-6 col-md-4 col-sm-4 padd">
-                                            <div class="post-wrapper wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
-                                                <!-- image -->
-                                                <div class="post-thumb">
-                                                    <a href="#">
-                                                        <img class="img-responsive" src="{{asset('frontend_asset/images/articale06.jpg')}}" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="post-info meta-info-rn">
-                                                    <div class="slide">
-                                                        <a target="_blank" href="#" class="post-badge btn_two">T</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="post-title-author-details">
-                                                <h4><a href="#">World Econmy Changing and Affecting in 3rd ...</a></h4>
-                                                <div class="post-editor-date">
-                                                    <div class="post-date">
-                                                        <i class="pe-7s-clock"></i> Oct 6, 2016
-                                                    </div>
-                                                    <div class="post-author-comment"><i class="pe-7s-comment"></i> 13 </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <!-- /.article -->
-                <div class="col-sm-4 left-padding">
-                    <aside>
-                        <h3 class="category-headding ">CATEGORIES</h3>
-                        <div class="headding-border bg-color-2"></div>
-                        <div class="cats-widget">
-                            <ul>
-                                <li class=""><a href="#" title="Title goes here.">Fashion</a> <span>12</span></li>
-                                <li class=""><a href="#" title="Title goes here.">Beauty</a> <span>9</span></li>
-                                <li class=""><a href="#">Travel</a> <span>32</span></li>
-                                <li class=""><a href="#" title="Title goes here.">Lifestyle</a> <span>50</span></li>
-                                <li class=""><a href="#">Video</a> <span>22</span></li>
-                                <li class=""><a href="#">Inspiration</a> <span>39</span></li>
-                            </ul>
-                        </div>
-                    </aside>
-                    <aside class="flicker-inner">
-                        <!-- flicker widget -->
-                        <h3 class="category-headding ">FLICKER WIDGET</h3>
-                        <div class="headding-border bg-color-2"></div>
-                        <ul class="fprojects">
-                            <li>
-                                <div>
-                                    <div class="prettyPhoto">
-                                        <div class="fp-overlay"><i class="fa fa-mail-forward"></i></div>
-                                        <a href="#"><img src="{{asset('frontend_asset/images/flicker/flicker-01.jpg')}}" class=" popup img-responsive" alt=""></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <div class="prettyPhoto">
-                                        <div class="fp-overlay"><i class="fa fa-mail-forward"></i></div>
-                                        <a href="#"><img src="{{asset('frontend_asset/images/flicker/flicker-02.jpg')}}" class=" popup img-responsive" alt=""></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <div class="prettyPhoto">
-                                        <div class="fp-overlay"><i class="fa fa-mail-forward"></i></div>
-                                        <a href="#"><img src="{{asset('frontend_asset/images/flicker/flicker-03.jpg')}}" class=" popup img-responsive" alt=""></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <div class="prettyPhoto">
-                                        <div class="fp-overlay"><i class="fa fa-mail-forward"></i></div>
-                                        <a href="#"><img src="{{asset('frontend_asset/images/flicker/flicker-04.jpg')}}" class=" popup img-responsive" alt=""></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <div class="prettyPhoto">
-                                        <div class="fp-overlay"><i class="fa fa-mail-forward"></i></div>
-                                        <a href="#"><img src="{{asset('frontend_asset/images/flicker/flicker-05.jpg')}}" class=" popup img-responsive" alt=""></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <div class="prettyPhoto">
-                                        <div class="fp-overlay"><i class="fa fa-mail-forward"></i></div>
-                                        <a href="#"><img src="{{asset('frontend_asset/images/flicker/flicker-06.jpg')}}" class=" popup img-responsive" alt=""></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <div class="prettyPhoto">
-                                        <div class="fp-overlay"><i class="fa fa-mail-forward"></i></div>
-                                        <a href="#"><img src="{{asset('frontend_asset/images/flicker/flicker-07.jpg')}}" class=" popup img-responsive" alt=""></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <div class="prettyPhoto">
-                                        <div class="fp-overlay"><i class="fa fa-mail-forward"></i></div>
-                                        <a href="#"><img src="{{asset('frontend_asset/images/flicker/flicker-08.jpg')}}" class=" popup img-responsive" alt=""></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <div class="prettyPhoto">
-                                        <div class="fp-overlay"><i class="fa fa-mail-forward"></i></div>
-                                        <a href="#"><img src="{{asset('frontend_asset/images/flicker/flicker-09.jpg')}}" class=" popup img-responsive" alt=""></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <div class="prettyPhoto">
-                                        <div class="fp-overlay"><i class="fa fa-mail-forward"></i></div>
-                                        <a href="#"><img src="{{asset('frontend_asset/images/flicker/flicker-10.jpg')}}" class=" popup img-responsive" alt=""></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <div class="prettyPhoto">
-                                        <div class="fp-overlay"><i class="fa fa-mail-forward"></i></div>
-                                        <a href="#"><img src="{{asset('frontend_asset/images/flicker/flicker-11.jpg')}}" class=" popup img-responsive" alt=""></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <div class="prettyPhoto">
-                                        <div class="fp-overlay"><i class="fa fa-mail-forward"></i></div>
-                                        <a href="#"><img src="{{asset('frontend_asset/images/flicker/flicker-12.jpg')}}" class=" popup img-responsive" alt=""></a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </aside>
-                    <!-- /.flicker widget -->
-                </div>
-            </div>
-        </div>
-    </div> --}}
         
 @endsection
