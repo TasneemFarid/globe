@@ -7,19 +7,20 @@
         <div class="container">
             <div class="row row-margin">
                 <div class="col-sm-3 hidden-xs col-padding">
+                    @foreach ($randoms as $random)
                     <div class="post-wrapper wow fadeIn" data-wow-duration="2s">
                         <div class="post-thumb img-zoom-in">
                             <a href="#">
-                                <img class="entry-thumb" src="{{asset('frontend_asset/images/slider/slide-01.jpg')}}" alt="">
+                                <img class="entry-thumb" src="{{asset('uploads/articles')}}/{{$random->image}}" alt="">
                             </a>
                         </div>
                         <div class="post-info">
-                            <span class="color-1">FASHION </span>
-                            <h3 class="post-title post-title-size"><a href="#" rel="bookmark">The 20 free things in Sydney with your girlfriend </a></h3>
+                            <span class="color-1">{{$random->rel_to_category->category_name}} </span>
+                            <h3 class="post-title post-title-size"><a href="#" rel="bookmark">{{substr($random->headline, 0, 100)}}...</a></h3>
                             <div class="post-editor-date">
                                 <!-- post date -->
                                 <div class="post-date">
-                                    <i class="pe-7s-clock"></i> Oct 6, 2016
+                                    <i class="pe-7s-clock"></i>{{$random->created_at->format('M jS, Y')}}
                                 </div>
                                 <!-- post comment -->
                                 <div class="post-author-comment"><i class="pe-7s-comment"></i> 13 </div>
@@ -28,23 +29,25 @@
                             </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
                 <div class="col-xs-12 col-md-6 col-sm-6 col-padding">
                     <div id="news-feed-carousel" class="owl-carousel owl-theme">
+                        @foreach ($carosel_randoms as $carosel_random)
                         <div class="item">
                             <div class="post-wrapper wow fadeIn" data-wow-duration="2s">
                                 <div class="post-thumb img-zoom-in">
                                     <a href="#">
-                                        <img class="entry-thumb" src="{{asset('frontend_asset/images/slider/slide-02.jpg')}}" alt="">
+                                        <img class="entry-thumb" src="{{asset('uploads/articles')}}/{{$carosel_random->image}}" alt="">
                                     </a>
                                 </div>
                                 <div class="post-info">
-                                    <span class="color-2">FASHION </span>
-                                    <h3 class="post-title"><a href="#" rel="bookmark">The 20 free things in Sydney with your girlfriend </a></h3>
+                                    <span class="color-2">{{$carosel_random->rel_to_category->category_name}} </span>
+                                    <h3 class="post-title post-title-size"><a href="#" rel="bookmark">{{substr($carosel_random->headline, 0, 100)}}...</a></h3>
                                     <div class="post-editor-date">
                                         <!-- post date -->
                                         <div class="post-date">
-                                            <i class="pe-7s-clock"></i> Oct 6, 2016
+                                            <i class="pe-7s-clock"></i>{{$carosel_random->created_at->format('M jS, Y')}}
                                         </div>
                                         <!-- post comment -->
                                         <div class="post-author-comment"><i class="pe-7s-comment"></i> 13 </div>
@@ -54,68 +57,24 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="item">
-                            <div class="post-wrapper wow fadeIn" data-wow-duration="2s">
-                                <div class="post-thumb img-zoom-in">
-                                    <a href="#">
-                                        <img class="entry-thumb" src="{{asset('frontend_asset/images/slider/slide-03.jpg')}}" alt="">
-                                    </a>
-                                </div>
-                                <div class="post-info">
-                                    <span class="color-3">FASHION </span>
-                                    <h3 class="post-title"><a href="#" rel="bookmark">The 20 free things in Sydney with your girlfriend </a></h3>
-                                    <div class="post-editor-date">
-                                        <!-- post date -->
-                                        <div class="post-date">
-                                            <i class="pe-7s-clock"></i> Oct 6, 2016
-                                        </div>
-                                        <!-- post comment -->
-                                        <div class="post-author-comment"><i class="pe-7s-comment"></i> 13 </div>
-                                        <!-- read more -->
-                                        <a class="readmore pull-right" href="#"><i class="pe-7s-angle-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="post-wrapper wow fadeIn" data-wow-duration="2s">
-                                <div class="post-thumb img-zoom-in">
-                                    <a href="#">
-                                        <img class="entry-thumb" src="{{asset('frontend_asset/images/slider/slide-04.jpg')}}" alt="">
-                                    </a>
-                                </div>
-                                <div class="post-info">
-                                    <span class="color-4">FASHION </span>
-                                    <h3 class="post-title"><a href="#" rel="bookmark">The 20 free things in Sydney with your girlfriend </a></h3>
-                                    <div class="post-editor-date">
-                                        <!-- post date -->
-                                        <div class="post-date">
-                                            <i class="pe-7s-clock"></i> Oct 6, 2016
-                                        </div>
-                                        <!-- post comment -->
-                                        <div class="post-author-comment"><i class="pe-7s-comment"></i> 13 </div>
-                                        <!-- read more -->
-                                        <a class="readmore pull-right" href="#"><i class="pe-7s-angle-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="col-sm-3 hidden-xs col-padding">
+                    @foreach ($randoms_last as $random)
                     <div class="post-wrapper wow fadeIn" data-wow-duration="2s">
                         <div class="post-thumb img-zoom-in">
                             <a href="#">
-                                <img class="entry-thumb" src="{{asset('frontend_asset/images/slider/slide-05.jpg')}}" alt="">
+                                <img class="entry-thumb" src="{{asset('uploads/articles')}}/{{$random->image}}" alt="">
                             </a>
                         </div>
                         <div class="post-info">
-                            <span class="color-5">FASHION </span>
-                            <h3 class="post-title post-title-size"><a href="#" rel="bookmark">The 20 free things in Sydney with your girlfriend </a></h3>
+                            <span class="color-3">{{$random->rel_to_category->category_name}} </span>
+                            <h3 class="post-title post-title-size"><a href="#" rel="bookmark">{{substr($random->headline, 0, 100)}}...</a></h3>
                             <div class="post-editor-date">
                                 <!-- post date -->
                                 <div class="post-date">
-                                    <i class="pe-7s-clock"></i> Oct 6, 2016
+                                    <i class="pe-7s-clock"></i>{{$random->created_at->format('M jS, Y')}}
                                 </div>
                                 <!-- post comment -->
                                 <div class="post-author-comment"><i class="pe-7s-comment"></i> 13 </div>
@@ -124,6 +83,7 @@
                             </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -242,20 +202,21 @@
                 <h3 class="category-headding ">WEEKLY NEWS</h3>
                 <div class="headding-border bg-color-1"></div>
                 <div id="content-slide-4" class="owl-carousel">
+                    @foreach ($weekly_items as $weekly_item)
                     <div class="item">
                         <div class="post-wrapper wow fadeIn" data-wow-duration="1s">
                             <div class="post-thumb img-zoom-in">
                                 <a href="#">
-                                    <img class="entry-thumb" src="{{asset('frontend_asset/images/weekly-news-01.jpg')}}" alt="">
+                                    <img class="entry-thumb" src="{{asset('uploads/articles')}}/{{$weekly_item->image}}" alt="">
                                 </a>
                             </div>
                             <div class="post-info">
-                                <span class="color-4">FASHION </span>
-                                <h3 class="post-title"><a href="#" rel="bookmark">The 20 free things in Sydney with your girlfriend </a></h3>
+                                <span class="color-4">{{$weekly_item->rel_to_category->category_name}}</span>
+                                <h3 class="post-title"><a href="#" rel="bookmark">{{substr($weekly_item->headline,0,45)}}...</a></h3>
                                 <div class="post-editor-date">
                                     <!-- post date -->
                                     <div class="post-date">
-                                        <i class="pe-7s-clock"></i> Oct 6, 2016
+                                        <i class="pe-7s-clock"></i>{{$weekly_item->created_at->format('M jS, Y')}}
                                     </div>
                                     <!-- post comment -->
                                     <div class="post-author-comment"><i class="pe-7s-comment"></i> 13 </div>
@@ -265,121 +226,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="item">
-                        <div class="post-wrapper wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
-                            <div class="post-thumb img-zoom-in">
-                                <a href="#">
-                                    <img class="entry-thumb" src="{{asset('frontend_asset/images/weekly-news-05.jpg')}}" alt="">
-                                </a>
-                            </div>
-                            <div class="post-info">
-                                <span class="color-1">SPORTS </span>
-                                <h3 class="post-title"><a href="#" rel="bookmark">The 20 free things in Sydney with your girlfriend </a></h3>
-                                <div class="post-editor-date">
-                                    <!-- post date -->
-                                    <div class="post-date">
-                                        <i class="pe-7s-clock"></i> Oct 6, 2016
-                                    </div>
-                                    <!-- post comment -->
-                                    <div class="post-author-comment"><i class="pe-7s-comment"></i> 13 </div>
-                                    <!-- read more -->
-                                    <a class="readmore pull-right" href="#"><i class="pe-7s-angle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="post-wrapper wow fadeIn" data-wow-duration="1s" data-wow-delay="0.3s">
-                            <div class="post-thumb img-zoom-in">
-                                <a href="#">
-                                    <img class="entry-thumb" src="{{asset('frontend_asset/images/weekly-news-02.jpg')}}" alt="">
-                                </a>
-                            </div>
-                            <div class="post-info">
-                                <span class="color-2">TECHNOLOGY </span>
-                                <h3 class="post-title"><a href="#" rel="bookmark">The 20 free things in Sydney with your girlfriend </a></h3>
-                                <div class="post-editor-date">
-                                    <!-- post date -->
-                                    <div class="post-date">
-                                        <i class="pe-7s-clock"></i> Oct 6, 2016
-                                    </div>
-                                    <!-- post comment -->
-                                    <div class="post-author-comment"><i class="pe-7s-comment"></i> 13 </div>
-                                    <!-- read more -->
-                                    <a class="readmore pull-right" href="#"><i class="pe-7s-angle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="post-wrapper wow fadeIn" data-wow-duration="1s" data-wow-delay="0.4s">
-                            <div class="post-thumb img-zoom-in">
-                                <a href="#">
-                                    <img class="entry-thumb" src="{{asset('frontend_asset/images/weekly-news-03.jpg')}}" alt="">
-                                </a>
-                            </div>
-                            <div class="post-info">
-                                <span class="color-5">BUSINESS </span>
-                                <h3 class="post-title"><a href="#" rel="bookmark">The 20 free things in Sydney with your girlfriend </a></h3>
-                                <div class="post-editor-date">
-                                    <!-- post date -->
-                                    <div class="post-date">
-                                        <i class="pe-7s-clock"></i> Oct 6, 2016
-                                    </div>
-                                    <!-- post comment -->
-                                    <div class="post-author-comment"><i class="pe-7s-comment"></i> 13 </div>
-                                    <!-- read more -->
-                                    <a class="readmore pull-right" href="#"><i class="pe-7s-angle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="post-wrapper wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
-                            <div class="post-thumb img-zoom-in">
-                                <a href="#">
-                                    <img class="entry-thumb" src="{{asset('frontend_asset/images/weekly-news-04.jpg')}}" alt="">
-                                </a>
-                            </div>
-                            <div class="post-info">
-                                <span class="color-3">HEALTH </span>
-                                <h3 class="post-title"><a href="#" rel="bookmark">The 20 free things in Sydney with your girlfriend </a></h3>
-                                <div class="post-editor-date">
-                                    <!-- post date -->
-                                    <div class="post-date">
-                                        <i class="pe-7s-clock"></i> Oct 6, 2016
-                                    </div>
-                                    <!-- post comment -->
-                                    <div class="post-author-comment"><i class="pe-7s-comment"></i> 13 </div>
-                                    <!-- read more -->
-                                    <a class="readmore pull-right" href="#"><i class="pe-7s-angle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="post-wrapper wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
-                            <div class="post-thumb img-zoom-in">
-                                <a href="#">
-                                    <img class="entry-thumb" src="{{asset('frontend_asset/images/weekly-news-06.jpg')}}" alt="">
-                                </a>
-                            </div>
-                            <div class="post-info">
-                                <span class="color-2">INTERNATIONAL </span>
-                                <h3 class="post-title"><a href="#" rel="bookmark">The 20 free things in Sydney with your girlfriend </a></h3>
-                                <div class="post-editor-date">
-                                    <!-- post date -->
-                                    <div class="post-date">
-                                        <i class="pe-7s-clock"></i> Oct 6, 2016
-                                    </div>
-                                    <!-- post comment -->
-                                    <div class="post-author-comment"><i class="pe-7s-comment"></i> 13 </div>
-                                    <!-- read more -->
-                                    <a class="readmore pull-right" href="#"><i class="pe-7s-angle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+                    
                 </div>
             </div>
         </div>
